@@ -13,6 +13,81 @@
   ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./versions": {
+      "types": "./dist/modules/versions/index.d.ts",
+      "require": "./dist/modules/versions/index.js",
+      "import": "./dist/modules/versions/index.js",
+      "default": "./dist/modules/versions/index.js"
+    },
+    "./credentials": {
+      "types": "./dist/modules/credentials/index.d.ts",
+      "require": "./dist/modules/credentials/index.js",
+      "import": "./dist/modules/credentials/index.js",
+      "default": "./dist/modules/credentials/index.js"
+    },
+    "./locations": {
+      "types": "./dist/modules/locations/index.d.ts",
+      "require": "./dist/modules/locations/index.js",
+      "import": "./dist/modules/locations/index.js",
+      "default": "./dist/modules/locations/index.js"
+    },
+    "./sessions": {
+      "types": "./dist/modules/sessions/index.d.ts",
+      "require": "./dist/modules/sessions/index.js",
+      "import": "./dist/modules/sessions/index.js",
+      "default": "./dist/modules/sessions/index.js"
+    },
+    "./cdrs": {
+      "types": "./dist/modules/cdrs/index.d.ts",
+      "require": "./dist/modules/cdrs/index.js",
+      "import": "./dist/modules/cdrs/index.js",
+      "default": "./dist/modules/cdrs/index.js"
+    },
+    "./tariffs": {
+      "types": "./dist/modules/tariffs/index.d.ts",
+      "require": "./dist/modules/tariffs/index.js",
+      "import": "./dist/modules/tariffs/index.js",
+      "default": "./dist/modules/tariffs/index.js"
+    },
+    "./tokens": {
+      "types": "./dist/modules/tokens/index.d.ts",
+      "require": "./dist/modules/tokens/index.js",
+      "import": "./dist/modules/tokens/index.js",
+      "default": "./dist/modules/tokens/index.js"
+    },
+    "./commands": {
+      "types": "./dist/modules/commands/index.d.ts",
+      "require": "./dist/modules/commands/index.js",
+      "import": "./dist/modules/commands/index.js",
+      "default": "./dist/modules/commands/index.js"
+    },
+    "./chargingprofiles": {
+      "types": "./dist/modules/chargingprofiles/index.d.ts",
+      "require": "./dist/modules/chargingprofiles/index.js",
+      "import": "./dist/modules/chargingprofiles/index.js",
+      "default": "./dist/modules/chargingprofiles/index.js"
+    },
+    "./hubclientinfo": {
+      "types": "./dist/modules/hubclientinfo/index.d.ts",
+      "require": "./dist/modules/hubclientinfo/index.js",
+      "import": "./dist/modules/hubclientinfo/index.js",
+      "default": "./dist/modules/hubclientinfo/index.js"
+    },
+    "./shared": {
+      "types": "./dist/shared/index.d.ts",
+      "require": "./dist/shared/index.js",
+      "import": "./dist/shared/index.js",
+      "default": "./dist/shared/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "dist"
   ],

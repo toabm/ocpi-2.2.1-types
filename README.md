@@ -1,12 +1,27 @@
 # @ablamun/ocpi-2.2.1-types
 
+[![npm package](https://img.shields.io/npm/v/@ablamun/ocpi-2.2.1-types.svg?label=npm%20package&color=green)](https://www.npmjs.com/package/@ablamun/ocpi-2.2.1-types)
+[![OCPI Version](https://img.shields.io/badge/OCPI-2.2.1-blue.svg)](https://github.com/ocpi/ocpi)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 TypeScript types and [class-validator](https://github.com/typestack/class-validator) DTOs for the [OCPI 2.2.1](https://github.com/ocpi/ocpi) protocol (Open Charge Point Interface).
 
 Every OCPI object (locations, sessions, tokens, tariffs, CDRs, commands, credentials, versions...) is shipped as a `class-validator`/`class-transformer` decorated class, not a bare TypeScript interface. That means you get runtime request/response validation for free, not just compile-time type shapes.
 
-## Available types, by OCPI module
+## ✨ Features
 
-Types are organized to match the [OCPI 2.2.1 specification](https://github.com/ocpi/ocpi)'s own module structure. `ChargingProfiles` and `HubClientInfo` modules are not covered yet.
+- 🎯 **Full OCPI 2.2.1 module coverage** — all nine modules from the spec: Versions, Credentials, Locations, Sessions, CDRs, Tariffs, Tokens, Commands, ChargingProfiles, and HubClientInfo
+- ✅ **Real runtime validation, not just types** — every DTO is a `class-validator`/`class-transformer` class, so `validate()` actually catches malformed OCPI payloads, not just TypeScript compile errors
+- 🧩 **Framework-agnostic** — no NestJS (or any other framework) dependency anywhere in the package; works in any Node/TypeScript project
+- 📖 **Built from the spec, not guessed** — every field, enum value, and validation rule is sourced directly from the OCPI 2.2.1 specification document
+- 🧪 **Tested** — unit tests for every custom validator plus per-module valid/invalid payload coverage, and full end-to-end scenario tests (a `START_SESSION` command lifecycle, a Credentials registration handshake)
+- 🧰 **`validateAll` helper** — validate arrays of DTOs (e.g. a Locations list response) in one call instead of hand-rolling a `.map()`
+- 📦 **Per-module subpath imports** — pull in just `@ablamun/ocpi-2.2.1-types/locations` instead of the whole package, if you only need one module's types
+
+## 🗂️ Available types, by OCPI module
+
+Types are organized to match the [OCPI 2.2.1 specification](https://github.com/ocpi/ocpi)'s own module structure.
 
 <details>
 <summary><strong>Versions</strong> — protocol version negotiation</summary>
@@ -134,6 +149,31 @@ Types are organized to match the [OCPI 2.2.1 specification](https://github.com/o
 </details>
 
 <details>
+<summary><strong>ChargingProfiles</strong> — smart charging power/current limits over time</summary>
+
+- `SetChargingProfileDto` — Request the Receiver (typically CPO) to set a Charging Profile on a specific session
+- `ChargingProfileDto` — A list of charging periods, defining power/current limits over time for a session
+- `ChargingProfilePeriodDto` — One time-bounded segment of a Charging Profile (start offset + limit)
+- `ActiveChargingProfileDto` — The Charging Profile as actually calculated and applied by the Charge Point
+- `ChargingProfileResponseDto` — The Receiver's immediate accept/reject response to a Charging Profile request
+- `ActiveChargingProfileResultDto` — The Charge Point's asynchronous result of a GET ActiveChargingProfile request
+- `ChargingProfileResultDto` — The Charge Point's asynchronous result of a PUT (SetChargingProfile) request
+- `ClearProfileResultDto` — The Charge Point's asynchronous result of a DELETE (ClearChargingProfile) request
+- `ChargingRateUnitEnum` — Unit a Charging Profile's limits are expressed in (Watts or Amperes)
+- `ChargingProfileResponseType` — Possible immediate accept/reject responses to a Charging Profile request
+- `ChargingProfileResultType` — Possible outcomes reported back for an executed Charging Profile request
+
+</details>
+
+<details>
+<summary><strong>HubClientInfo</strong> — party connection status, as tracked by a Hub</summary>
+
+- `ClientInfoDto` — A party's (CPO/eMSP) connection status as known by the Hub it connects through
+- `ConnectionStatusEnum` — A party's connection state (connected, offline, planned, suspended)
+
+</details>
+
+<details>
 <summary><strong>Shared</strong> — used across multiple modules</summary>
 
 - `OcpiResponseDto` — The envelope every OCPI response is wrapped in (`data`, `status_code`, `timestamp`...)
@@ -144,7 +184,7 @@ Types are organized to match the [OCPI 2.2.1 specification](https://github.com/o
 
 </details>
 
-## Install
+## 📦 Install
 
 ```bash
 npm install @ablamun/ocpi-2.2.1-types
@@ -152,7 +192,22 @@ npm install @ablamun/ocpi-2.2.1-types
 
 `class-validator`, `class-transformer`, and `reflect-metadata` are installed automatically as dependencies — no NestJS or any other framework required.
 
-## Quick example: validating a DTO
+### 🧭 Importing only what you need
+
+Every type is available from the main package, or from a per-module subpath if you'd rather not pull in types you're not using:
+
+```typescript
+// Everything, from the main barrel
+import { LocationDto, StartSessionDto } from '@ablamun/ocpi-2.2.1-types';
+
+// Or just one module's types
+import { LocationDto, EvseDto, ConnectorDto } from '@ablamun/ocpi-2.2.1-types/locations';
+import { StartSessionDto, CommandType } from '@ablamun/ocpi-2.2.1-types/commands';
+```
+
+Available subpaths: `/versions`, `/credentials`, `/locations`, `/sessions`, `/cdrs`, `/tariffs`, `/tokens`, `/commands`, `/chargingprofiles`, `/hubclientinfo`, `/shared`.
+
+## 💡 Quick example: validating a DTO
 
 ```typescript
 import { validate } from 'class-validator';
@@ -168,7 +223,7 @@ if (errors.length > 0) {
 }
 ```
 
-## Real-world example: sending a START_SESSION command
+## ⚡ Real-world example: sending a START_SESSION command
 
 A common OCPI flow: an eMSP asks a CPO to remotely start a charging session on behalf of a driver, by `POST`-ing a `StartSessionDto` to the CPO's `commands` module endpoint. The CPO responds immediately with a `CommandResponseDto` (`ACCEPTED`/`REJECTED`/...) wrapped in the standard `OcpiResponseDto` envelope, and later reports the actual outcome asynchronously via a `CommandResultDto` POSTed back to your `response_url`.
 
@@ -237,7 +292,7 @@ if (commandResponse.result === 'ACCEPTED') {
 
 The same pattern applies to the other command types (`StopSessionDto`, `ReserveNowDto`, `CancelReservationDto`, `UnlockConnectorDto`) — see `CommandType` for the full list.
 
-## Validating arrays of DTOs
+## 🗃️ Validating arrays of DTOs
 
 For endpoints that return lists (e.g. all Locations, all Tariffs), the bundled `validateAll` helper saves you a manual `.map()`:
 
@@ -249,6 +304,6 @@ const locations = plainToInstance(LocationDto, plainLocationArrayFromApi);
 const errorsPerLocation = await validateAll(locations); // ValidationError[][]
 ```
 
-## License
+## 📄 License
 
 MIT
