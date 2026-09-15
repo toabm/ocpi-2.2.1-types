@@ -1,0 +1,40 @@
+{
+  "name": "@toabm/ocpi-2.2.1-types",
+  "version": "0.1.0",
+  "description": "TypeScript types and class-validator DTOs for the OCPI 2.2.1 protocol",
+  "license": "MIT",
+  "author": "toabm",
+  "keywords": [
+    "ocpi",
+    "ocpi-2.2.1",
+    "ev-charging",
+    "typescript",
+    "class-validator"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist",
+    "test": "jest",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.17.9",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.7.2"
+  }
+}
