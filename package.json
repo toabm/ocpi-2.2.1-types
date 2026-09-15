@@ -1,6 +1,6 @@
 {
   "name": "@ablamun/ocpi-2.2.1-types",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "TypeScript types and class-validator DTOs for the OCPI 2.2.1 protocol",
   "license": "MIT",
   "author": "toabm",
