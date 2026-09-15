@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+
 export * from './ocpi-cdr.dto';
 export * from './ocpi-credentials.dto';
 export * from './ocpi-connector.dto';

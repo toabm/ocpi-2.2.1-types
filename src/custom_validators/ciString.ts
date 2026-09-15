@@ -4,7 +4,7 @@ import {
   ValidatorConstraintInterface,
   registerDecorator,
   ValidatorConstraint
-} from '@nestjs/class-validator';
+} from 'class-validator';
 
 // The custom validation function you provided
 export const CiString = (value: string): boolean => {
