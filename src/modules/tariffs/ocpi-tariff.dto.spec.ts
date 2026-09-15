@@ -1,7 +1,7 @@
 // 🚫 Do not import this file directly. Use `types/index.ts` instead.
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
-import { TariffDimensionTypeEnum, TariffDto } from './index';
+import { TariffDimensionTypeEnum, TariffDto } from '../../index';
 
 describe('TariffDto', () => {
   const validTariff = {

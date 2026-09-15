@@ -16,7 +16,7 @@ import {
   ArrayNotEmpty
 } from 'class-validator';
 import { Type } from 'class-transformer';
-import { ConnectorDto } from './index';
+import { ConnectorDto } from './ocpi-connector.dto';
 
 export enum StatusEnum {
   AVAILABLE = 'AVAILABLE', // The EVSE/Connector is able to start a new charging session.

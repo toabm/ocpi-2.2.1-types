@@ -10,9 +10,9 @@ import {
   MaxLength,
   ValidateNested
 } from 'class-validator';
-import { BusinessDetailsDto } from './index';
-import { IsCiString } from './custom_validators/ciString';
-import { IsCountryCode } from './custom_validators/countryCode';
+import { BusinessDetailsDto } from '../../index';
+import { IsCiString } from '../../custom_validators/ciString';
+import { IsCountryCode } from '../../custom_validators/countryCode';
 import { Type } from 'class-transformer';
 
 export enum RoleEnum {

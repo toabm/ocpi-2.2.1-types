@@ -1,5 +1,5 @@
 // 🚫 Do not import this file directly. Use `types/index.ts` instead.
-import { DisplayTextDto, TokenDto } from './';
+import { DisplayTextDto, TokenDto } from '../../index';
 import {
   IsArray,
   IsEnum,
@@ -11,7 +11,7 @@ import {
   MaxLength,
   ValidateNested
 } from 'class-validator';
-import { IsCiString } from './custom_validators/ciString';
+import { IsCiString } from '../../custom_validators/ciString';
 import { Type } from 'class-transformer';
 
 export enum CommandType {

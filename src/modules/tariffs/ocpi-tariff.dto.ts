@@ -16,8 +16,8 @@ import {
   ValidateNested
 } from 'class-validator';
 import { Type } from 'class-transformer';
-import { EnergyMixDto, DisplayTextDto } from './index';
-import { IsCiString } from './custom_validators/ciString';
+import { EnergyMixDto, DisplayTextDto } from '../../index';
+import { IsCiString } from '../../custom_validators/ciString';
 
 export class PriceDto {
   /**

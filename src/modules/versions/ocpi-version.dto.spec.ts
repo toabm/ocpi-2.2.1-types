@@ -1,6 +1,6 @@
 // 🚫 Do not import this file directly. Use `types/index.ts` instead.
 import { validate } from 'class-validator';
-import { VersionDto, VersionEnum } from './index';
+import { VersionDto, VersionEnum } from '../../index';
 
 describe('VersionDto', () => {
   const versionDtoArrayOK = [

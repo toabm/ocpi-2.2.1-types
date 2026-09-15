@@ -15,13 +15,13 @@ import {
   MaxLength,
   ValidateNested
 } from 'class-validator';
-import { IsCiString } from './custom_validators/ciString';
+import { IsCiString } from '../../custom_validators/ciString';
 import { Type } from 'class-transformer';
-import { ConnectorFormatEnum, ConnectorTypeEnum, PowerTypeEnum } from './ocpi-connector.dto';
-import { TokenTypeEnum } from './ocpi-token.dto';
-import { GeoLocationDto } from './ocpi-evse.dto';
-import { AuthMethodEnum } from './ocpi-session.dto';
-import { PriceDto, TariffDto } from './ocpi-tariff.dto';
+import { ConnectorFormatEnum, ConnectorTypeEnum, PowerTypeEnum } from '../locations/ocpi-connector.dto';
+import { TokenTypeEnum } from '../tokens/ocpi-token.dto';
+import { GeoLocationDto } from '../locations/ocpi-evse.dto';
+import { AuthMethodEnum } from '../sessions/ocpi-session.dto';
+import { PriceDto, TariffDto } from '../tariffs/ocpi-tariff.dto';
 
 
 /**

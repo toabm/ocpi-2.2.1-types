@@ -1,7 +1,7 @@
 // 🚫 Do not import this file directly. Use `types/index.ts` instead.
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
-import { CommandResponseDto, CommandResponseType, StartSessionDto, TokenTypeEnum, WhitelistTypeEnum } from './index';
+import { CommandResponseDto, CommandResponseType, StartSessionDto, TokenTypeEnum, WhitelistTypeEnum } from '../../index';
 
 describe('StartSessionDto', () => {
   const validStartSession = {

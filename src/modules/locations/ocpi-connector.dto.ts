@@ -11,7 +11,7 @@ import {
   IsISO8601,
   ValidateIf
 } from 'class-validator';
-import { IsCiString } from './custom_validators/ciString';
+import { IsCiString } from '../../custom_validators/ciString';
 
 export enum ConnectorTypeEnum {
   CHADEMO = 'CHADEMO',

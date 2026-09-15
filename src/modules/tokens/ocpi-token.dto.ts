@@ -10,11 +10,11 @@ import {
   MaxLength,
   ValidateNested
 } from 'class-validator';
-import { IsCiString } from './custom_validators/ciString';
+import { IsCiString } from '../../custom_validators/ciString';
 import { Type } from 'class-transformer';
-import { IsCountryCode } from './custom_validators/countryCode';
-import { ProfileTypeEnum } from './ocpi-session.dto';
-import { DisplayTextDto } from './ocpi-evse.dto';
+import { IsCountryCode } from '../../custom_validators/countryCode';
+import { ProfileTypeEnum } from '../sessions/ocpi-session.dto';
+import { DisplayTextDto } from '../locations/ocpi-evse.dto';
 
 export enum AllowedTypeEnum {
   ALLOWED = 'ALLOWED',

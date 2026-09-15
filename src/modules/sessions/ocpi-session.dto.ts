@@ -1,5 +1,5 @@
 // 🚫 Do not import this file directly. Use `types/index.ts` instead.
-import { CdrTokenDto, ChargingPeriodDto, PriceDto } from './index';
+import { CdrTokenDto, ChargingPeriodDto, PriceDto } from '../../index';
 import {
   IsArray,
   IsBoolean,
@@ -13,8 +13,8 @@ import {
   ValidateNested
 } from 'class-validator';
 import { Type } from 'class-transformer';
-import { IsCiString } from './custom_validators/ciString';
-import { IsCountryCode } from './custom_validators/countryCode';
+import { IsCiString } from '../../custom_validators/ciString';
+import { IsCountryCode } from '../../custom_validators/countryCode';
 
 export enum AuthMethodEnum {
   AUTH_REQUEST = 'AUTH_REQUEST', // Authentication request has been sent to the eMSP.

@@ -1,7 +1,7 @@
 // 🚫 Do not import this file directly. Use `types/index.ts` instead.
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
-import { ConnectorFormatEnum, ConnectorTypeEnum, LocationDto, PowerTypeEnum, StatusEnum } from './index';
+import { ConnectorFormatEnum, ConnectorTypeEnum, LocationDto, PowerTypeEnum, StatusEnum } from '../../index';
 
 describe('LocationDto', () => {
   const validLocation = {

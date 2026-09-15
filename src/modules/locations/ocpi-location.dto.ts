@@ -18,12 +18,12 @@ import {
   ValidateNested
 } from 'class-validator';
 import { Type } from 'class-transformer';
-import { IsCiString } from './custom_validators/ciString';
-import { IsCountryCode } from './custom_validators/countryCode';
+import { IsCiString } from '../../custom_validators/ciString';
+import { IsCountryCode } from '../../custom_validators/countryCode';
 
-import { IsIanaTimeZone } from './custom_validators/ianaTimeZone';
+import { IsIanaTimeZone } from '../../custom_validators/ianaTimeZone';
 import { AdditionalGeoLocationDto, DisplayTextDto, EvseDto, GeoLocationDto, ImageDto } from './ocpi-evse.dto';
-import { TokenTypeEnum } from './ocpi-token.dto';
+import { TokenTypeEnum } from '../tokens/ocpi-token.dto';
 
 /**
  * Reflects the general type of the charge point’s location. May be used for user information.

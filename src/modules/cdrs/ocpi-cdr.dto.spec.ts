@@ -1,7 +1,7 @@
 // 🚫 Do not import this file directly. Use `types/index.ts` instead.
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
-import { CdrDimensionTypeEnum, CdrDto, ConnectorFormatEnum, ConnectorTypeEnum, PowerTypeEnum, TokenTypeEnum } from './index';
+import { CdrDimensionTypeEnum, CdrDto, ConnectorFormatEnum, ConnectorTypeEnum, PowerTypeEnum, TokenTypeEnum } from '../../index';
 
 describe('CdrDto', () => {
   const validCdr = {

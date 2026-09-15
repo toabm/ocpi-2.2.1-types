@@ -1,7 +1,7 @@
 // 🚫 Do not import this file directly. Use `types/index.ts` instead.
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
-import { AuthMethodEnum, SessionDto, SessionStatusEnum, TokenTypeEnum } from './index';
+import { AuthMethodEnum, SessionDto, SessionStatusEnum, TokenTypeEnum } from '../../index';
 
 describe('SessionDto', () => {
   const validSession = {

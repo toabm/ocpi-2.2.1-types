@@ -1,7 +1,7 @@
 // 🚫 Do not import this file directly. Use `types/index.ts` instead.
 import { plainToInstance } from 'class-transformer';
 import { validate } from 'class-validator';
-import { TokenDto, WhitelistTypeEnum } from './index';
+import { TokenDto, WhitelistTypeEnum } from '../../index';
 
 describe('TokenDto', () => {
   const validToken = {
