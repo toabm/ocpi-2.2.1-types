@@ -4,6 +4,14 @@
   "description": "TypeScript types and class-validator DTOs for the OCPI 2.2.1 protocol",
   "license": "MIT",
   "author": "toabm",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toabm/ocpi-2.2.1-types.git"
+  },
+  "homepage": "https://github.com/toabm/ocpi-2.2.1-types#readme",
+  "bugs": {
+    "url": "https://github.com/toabm/ocpi-2.2.1-types/issues"
+  },
   "keywords": [
     "ocpi",
     "ocpi-2.2.1",
